@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,22 +30,30 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            //LINQ - Language Integrated Query
+            Car carToDelete = null ;
+            carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
+            _cars.Remove(carToDelete);
         }
 
         public List<Car> GetAll()
         {
-            throw new NotImplementedException();
+            return _cars;
         }
 
-        public List<Car> GetById(int id)
+        public List<Car> GetById(int Id)
         {
-            throw new NotImplementedException();
+          return _cars.Where(c => c.Id == Id).ToList();
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
+            carToUpdate.BrandId = car.BrandId;
+            carToUpdate.ColorId = car.ColorId;
+            carToUpdate.ModelYear = car.ModelYear;
+            carToUpdate.DailyPrice = car.DailyPrice;
+            carToUpdate.Description = car.Description;
         }
     }
 }
