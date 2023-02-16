@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         public void Add(Car entity)
         {
             //IDisposable pattern implementation of C#
-            using (CarDatabaseContext context=new CarDatabaseContext())
+            using (CarDatabaseContext context = new CarDatabaseContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;

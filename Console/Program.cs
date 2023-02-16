@@ -7,10 +7,9 @@ using Entities.Concrete;
 
 CarManager carManager = new CarManager(new EfCarDal());
 
-//Car car1 = new Car {Id=1,ColorId=1,BrandId=1,Description="Opel Astra",ModelYear=2016,DailyPrice=750 };
-//carManager.Add(car1);
+carManager.Add(new Car {ColorId = 1, BrandId = 1, Description = "Opel Astra", ModelYear = 2016, DailyPrice = 750 });
 
 foreach (var car in carManager.GetAll())
 {
-    Console.WriteLine(car.Description);
+   Console.WriteLine(car.Description);
 }
