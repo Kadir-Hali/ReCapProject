@@ -5,11 +5,35 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
-CarManager carManager = new CarManager(new EfCarDal());
+CarTest();
+//ColorTest();
+//BrandTest();
 
-carManager.Add(new Car {ColorId = 1, BrandId = 1, Description = "Opel Astra", ModelYear = 2016, DailyPrice = 750 });
-
-foreach (var car in carManager.GetAll())
+static void CarTest()
 {
-   Console.WriteLine(car.Description);
+    CarManager carManager = new CarManager(new EfCarDal());
+
+    foreach (var car in carManager.GetCarDetails())
+    {
+        Console.WriteLine(car.Description + "/" + car.BrandName+"/"+car.ColorName+"/"+car.DailyPrice);
+    }
+}
+
+static void ColorTest()
+{
+    ColorManager colorManager = new ColorManager(new EfColorDal());
+    foreach (var color in colorManager.GetAll())
+    {
+        Console.WriteLine(color.ColorName);
+
+    }
+}
+
+static void BrandTest()
+{
+    BrandManager brandManager = new BrandManager(new EfBrandDal());
+    foreach (var brand in brandManager.GetAll())
+    {
+        Console.WriteLine(brand.BrandName);
+    }
 }
