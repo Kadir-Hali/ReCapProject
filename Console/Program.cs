@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Business.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -13,27 +14,50 @@ static void CarTest()
 {
     CarManager carManager = new CarManager(new EfCarDal());
 
-    foreach (var car in carManager.GetCarDetails())
+    var result = carManager.GetCarDetails();
+
+    if (result.Success == true)
     {
-        Console.WriteLine(car.Description + "/" + car.BrandName+"/"+car.ColorName+"/"+car.DailyPrice);
+        foreach (var car in result.Data)
+        {
+            Console.WriteLine(car.Description + "/" + car.BrandName + "/" + car.ColorName + "/" + car.DailyPrice);
+        }
     }
-}
-
-static void ColorTest()
-{
-    ColorManager colorManager = new ColorManager(new EfColorDal());
-    foreach (var color in colorManager.GetAll())
+    else
     {
-        Console.WriteLine(color.ColorName);
+        Console.WriteLine(result.Message);
+    }
+
+
+
+
+
+    static void ColorTest()
+    {
+        ColorManager colorManager = new ColorManager(new EfColorDal());
+        var result = colorManager.GetAll();
+        if (result.Success == true)
+        {
+            foreach (var color in result.Data)
+            {
+                Console.WriteLine(color.ColorName);
+
+            }
+        }
 
     }
-}
 
-static void BrandTest()
-{
-    BrandManager brandManager = new BrandManager(new EfBrandDal());
-    foreach (var brand in brandManager.GetAll())
+    static void BrandTest()
     {
-        Console.WriteLine(brand.BrandName);
+        BrandManager brandManager = new BrandManager(new EfBrandDal());
+        var result = brandManager.GetAll();
+        if (result.Success == true)
+        {
+            foreach (var brand in result.Data)
+            {
+                Console.WriteLine(brand.BrandName);
+            }
+        }
+
     }
 }
