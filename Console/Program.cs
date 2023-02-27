@@ -6,9 +6,9 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
-CarTest();
+//CarTest();
 //ColorTest();
-//BrandTest();
+BrandTest();
 
 static void CarTest()
 {
@@ -28,7 +28,7 @@ static void CarTest()
         Console.WriteLine(result.Message);
     }
 
-
+}
 
 
 
@@ -60,4 +60,3 @@ static void CarTest()
         }
 
     }
-}
