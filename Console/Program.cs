@@ -8,8 +8,28 @@ using Entities.Concrete;
 
 //CarTest();
 //ColorTest();
-BrandTest();
+//BrandTest();
+RentalTest();
 
+static void RentalTest()
+{
+    RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+    var result = rentalManager.GetAll();
+
+    if (result.Success == true)
+    {
+        foreach (var rental in result.Data)
+        {
+            Console.WriteLine(rental.Id + "/" + rental.CarId + "/" +rental.RentDate );
+        }
+    }
+    else
+    {
+        Console.WriteLine(result.Message);
+    }
+
+}
 static void CarTest()
 {
     CarManager carManager = new CarManager(new EfCarDal());
@@ -29,8 +49,6 @@ static void CarTest()
     }
 
 }
-
-
 
     static void ColorTest()
     {
