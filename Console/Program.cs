@@ -6,10 +6,10 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
-//CarTest();
+CarTest();
 //ColorTest();
 //BrandTest();
-RentalTest();
+//RentalTest();
 
 static void RentalTest()
 {
