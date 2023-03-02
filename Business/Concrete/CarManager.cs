@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour==15)
             {
                 return new ErrorDataResult<List<Car>>(SystemMessages.MaintenanceTime);
             }
@@ -61,7 +61,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            if (DateTime.Now.Hour == 16)
+            if (DateTime.Now.Hour == 15)
             {
                 return new ErrorDataResult<List<CarDetailDto>>(SystemMessages.MaintenanceTime);
             }
