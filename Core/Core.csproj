@@ -15,8 +15,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Utilities\Security\JWT\" />
-  </ItemGroup>
-
 </Project>
