@@ -5,11 +5,6 @@ using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -24,10 +19,10 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
+        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
             var user = new User
             {
                 Email = userForRegisterDto.Email,
@@ -37,14 +32,16 @@ namespace Business.Concrete
                 PasswordSalt = passwordSalt,
                 Status = true
             };
-            _userService.Add(user);
+            var addUserResult = _userService.Add(user);
+            if (!addUserResult.Success) return new ErrorDataResult<User>(addUserResult.Message);
+
             return new SuccessDataResult<User>(user, AuthMessages.UserRegistered);
         }
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
-            if (userToCheck == null)
+            if (userToCheck.Data == null)
             {
                 return new ErrorDataResult<User>(AuthMessages.UserNotFound);
             }
