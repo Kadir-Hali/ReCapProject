@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Core.Entities;
 
-namespace Core.Entities
+//IEntity implement eden class bir veritabanı tablosudur.
+public interface IEntity
 {
-    //IEntity implement eden class bir veritabanı tablosudur.
-    public interface IEntity
-    {
-    }
 }
