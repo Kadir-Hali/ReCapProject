@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -18,8 +19,9 @@ public class CarManager : ICarService
     {
         _carDal = carDal;
     }
-    [SecuredOperation("admin,")]
+    [SecuredOperation("car.add")]
     [ValidationAspect(typeof(CarValidator))]
+    [CacheRemoveAspect("IProductService.Get")]
     public IResult Add(Car car)
     {    
         _carDal.Add(car);
@@ -33,6 +35,7 @@ public class CarManager : ICarService
         return new SuccessResult(CarMessages.CarDeleted);
     }
 
+    [CacheAspect]
     public IDataResult<List<Car>> GetAll()
     {
         if (DateTime.Now.Hour == 15)
@@ -75,6 +78,8 @@ public class CarManager : ICarService
         return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id), CarMessages.CarsColorListed);
     }
 
+    [ValidationAspect(typeof(CarValidator))]
+    [CacheRemoveAspect("ICarService.Get")]
     public IResult Update(Car car)
     {
         _carDal.Update(car);
