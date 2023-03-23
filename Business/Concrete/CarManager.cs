@@ -3,6 +3,8 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -23,7 +25,7 @@ public class CarManager : ICarService
     [ValidationAspect(typeof(CarValidator))]
     [CacheRemoveAspect("IProductService.Get")]
     public IResult Add(Car car)
-    {    
+    {
         _carDal.Add(car);
         return new SuccessResult(CarMessages.CarAdded);
 
@@ -36,9 +38,10 @@ public class CarManager : ICarService
     }
 
     [CacheAspect]
+    [PerformanceAspect(5)]
     public IDataResult<List<Car>> GetAll()
     {
-        if (DateTime.Now.Hour == 15)
+        if (DateTime.Now.Hour == 16)
         {
             return new ErrorDataResult<List<Car>>(SystemMessages.MaintenanceTime);
         }
@@ -53,6 +56,18 @@ public class CarManager : ICarService
     public IDataResult<Car> GetById(int carId)
     {
         return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == carId), CarMessages.CarByIdListed);
+    }
+
+    [TransactionScopeAspect]
+    public IResult AddTransactionalTest(Car car)
+    {
+        Add(car);
+        if (car.DailyPrice < 100)
+        {
+            throw new Exception("");
+        }
+        Add(car);
+        return null;
     }
 
     public IDataResult<List<CarDetailDto>> GetCarDetails()
