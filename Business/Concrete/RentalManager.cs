@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete;
 
@@ -13,6 +14,11 @@ public class RentalManager : IRentalService
     public RentalManager(IRentalDal rentalDal)
     {
         _rentalDal = rentalDal;
+    }
+
+    public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+    {
+        return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(),RentalMessages.RentalDetailsListed);
     }
 
     public IResult Add(Rental rental)

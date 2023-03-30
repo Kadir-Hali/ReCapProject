@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.DTOs;
 
 namespace Business.Constants
 {
@@ -62,6 +63,7 @@ namespace Business.Constants
     }
     public static class RentalMessages
     {
+        public static string RentalDetailsListed = "Kiralama detayları listelendi.";
         public static string RentalAdded = "Kiralama işlemi eklendi";
         public static string RentalDeleted = "Kiralama işlemi silindi";
         public static string RentalUpdated = "Kiralama işlemi güncellendi";
