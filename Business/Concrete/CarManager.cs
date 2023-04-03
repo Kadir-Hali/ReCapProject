@@ -72,11 +72,11 @@ public class CarManager : ICarService
 
     public IDataResult<List<CarDetailDto>> GetCarDetails()
     {
-        if (DateTime.Now.Hour == 15)
-        {
-            return new ErrorDataResult<List<CarDetailDto>>(SystemMessages.MaintenanceTime);
-        }
-        else
+        //if (DateTime.Now.Hour == 15)
+        //{
+        //    return new ErrorDataResult<List<CarDetailDto>>(SystemMessages.MaintenanceTime);
+        //}
+        //else
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), CarMessages.CarDetailsListed);
         }

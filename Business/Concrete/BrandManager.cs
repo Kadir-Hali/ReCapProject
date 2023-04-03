@@ -27,6 +27,7 @@ public class BrandManager : IBrandService
         return new SuccessResult(BrandMessages.BrandDeleted);
     }
 
+
     public IDataResult<List<Brand>> GetAll()
     {
         return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),BrandMessages.BrandsListed);
