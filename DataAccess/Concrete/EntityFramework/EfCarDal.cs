@@ -19,7 +19,7 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarDatabaseContext>, ICarDal
 
                 select new CarDetailDto
                 {
-                    Description= c.Description,
+                    CarName= c.CarName,
                     BrandName=b.BrandName,
                     ColorName=co.ColorName,
                     DailyPrice=c.DailyPrice

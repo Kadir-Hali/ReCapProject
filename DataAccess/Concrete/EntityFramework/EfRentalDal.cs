@@ -19,7 +19,7 @@ public class EfRentalDal:EfEntityRepositoryBase<Rental,CarDatabaseContext>,IRent
 
                 select new RentalDetailDto()
                 {
-                    Description = c.Description,
+                    CarName = c.CarName,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     RentDate = r.RentDate,
