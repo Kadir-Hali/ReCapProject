@@ -73,7 +73,7 @@ public class CarImageManager : ICarImageService
     private IResult CheckIfCarImageLimit(int carId)
     {
         var result = _carImageDal.GetAll(c => c.CarId == carId).Count;
-        if (result >= 5)
+        if (result >= 50)
         {
             return new ErrorResult(CarImagesMessages.CarImageLimitExceded);
         }
