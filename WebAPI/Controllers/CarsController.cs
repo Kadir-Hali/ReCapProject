@@ -105,4 +105,59 @@ public class CarsController : ControllerBase
         }
         return BadRequest(result);
     }
+
+    [HttpGet("getcardetailbybrandid")]
+    public IActionResult GetCarDetailByBrand(int brandId)
+    {
+        var result = _carService.GetCarDetailByBrand(brandId);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
+
+    [HttpGet("getcardetailbycolorid")]
+    public IActionResult GetCarDetailByColor(int colorId)
+    {
+        var result = _carService.GetCarDetailByColor(colorId);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
+
+    [HttpGet("getcardetailbycarid")]
+    public IActionResult GetCarDetailByCar(int carId)
+    {
+        var result = _carService.GetCarDetailByCar(carId);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
+
+    [HttpGet("getcardetaildtos")]
+    public IActionResult GetCarDetailDtos()
+    {
+        var result = _carService.GetCarDetails();
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
+
+    [HttpGet("getbydailyprice")]
+    public IActionResult GetByDailyPrice(decimal min, decimal max)
+    {
+        var result = _carService.GetByDailyPrice(min, max);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
 }

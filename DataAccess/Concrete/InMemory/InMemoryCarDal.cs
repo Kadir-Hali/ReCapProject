@@ -57,6 +57,16 @@ public class InMemoryCarDal : ICarDal
         throw new NotImplementedException();
     }
 
+    public List<CarDetailDto> GetCarDetailsByBrandId(int brandId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<CarDetailDto> GetCarDetailsByColorId(int colorId)
+    {
+        throw new NotImplementedException();
+    }
+
     public List<CarDetailDto> GetDetailsByBrandId(int brandId)
     {
         throw new NotImplementedException();
