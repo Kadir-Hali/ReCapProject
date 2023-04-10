@@ -18,7 +18,7 @@ static void RentalTest()
     {
         foreach (var rental in result.Data)
         {
-            Console.WriteLine(rental.Id + "/" + rental.CarId + "/" +rental.RentDate );
+            Console.WriteLine(rental.Id + "/" + rental.CarId + "/" + rental.RentDate);
         }
     }
     else
@@ -47,31 +47,31 @@ static void CarTest()
 
 }
 
-    static void ColorTest()
+static void ColorTest()
+{
+    ColorManager colorManager = new ColorManager(new EfColorDal());
+    var result = colorManager.GetAll();
+    if (result.Success == true)
     {
-        ColorManager colorManager = new ColorManager(new EfColorDal());
-        var result = colorManager.GetAll();
-        if (result.Success == true)
+        foreach (var color in result.Data)
         {
-            foreach (var color in result.Data)
-            {
-                Console.WriteLine(color.ColorName);
+            Console.WriteLine(color.ColorName);
 
-            }
         }
-
     }
 
-    static void BrandTest()
-    {
-        BrandManager brandManager = new BrandManager(new EfBrandDal());
-        var result = brandManager.GetAll();
-        if (result.Success == true)
-        {
-            foreach (var brand in result.Data)
-            {
-                Console.WriteLine(brand.BrandName);
-            }
-        }
+}
 
+static void BrandTest()
+{
+    BrandManager brandManager = new BrandManager(new EfBrandDal());
+    var result = brandManager.GetAll();
+    if (result.Success == true)
+    {
+        foreach (var brand in result.Data)
+        {
+            Console.WriteLine(brand.BrandName);
+        }
     }
+
+}
