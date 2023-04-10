@@ -53,6 +53,11 @@ public class CarManager : ICarService
         return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max), CarMessages.CarByDailyPriceListed);
     }
 
+    public IDataResult<List<CarDetailDto>> GetCarDetailByCar(int carId)
+    {
+        return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsById(carId));
+    }
+
     public IDataResult<Car> GetById(int carId)
     {
         return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == carId), CarMessages.CarByIdListed);
@@ -81,6 +86,16 @@ public class CarManager : ICarService
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), CarMessages.CarDetailsListed);
         }
 
+    }
+
+    public IDataResult<List<CarDetailDto>> GetCarDetailByBrand(int brandId)
+    {
+        return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByBrandId(brandId));
+    }
+
+    public IDataResult<List<CarDetailDto>> GetCarDetailByColor(int colorId)
+    {
+        return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByColorId(colorId));
     }
 
     public IDataResult<List<Car>> GetCarsByBrandId(int id)
