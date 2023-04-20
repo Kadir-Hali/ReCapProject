@@ -81,4 +81,12 @@
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
         public static string UserAlreadyExists = "Kullanıcı zaten var.";
     }
+    public static class PaymentMessages
+    {
+        public static string InsufficientBalance = "Yetersiz bakiye";
+        public static string PaymentCompleted = "Ödeme yapıldı";
+        public static string FindeksCalculateCompleted = "Findeks puanı hesaplandı.";
+        public static string FindeksPointsInsufficient = "Findeks puanı yetersiz";
+        public static string FindeksPointsSufficient = "Findeks puanı yeterli";
+    }
 }
