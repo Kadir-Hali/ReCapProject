@@ -30,12 +30,12 @@ public class BrandManager : IBrandService
 
     public IDataResult<List<Brand>> GetAll()
     {
-        return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),BrandMessages.BrandsListed);
+        return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), BrandMessages.BrandsListed);
     }
 
     public IDataResult<Brand> GetById(int brandId)
     {
-        return new SuccessDataResult<Brand>(_brandDal.Get(b => b.Id==brandId),BrandMessages.BrandByIdListed);
+        return new SuccessDataResult<Brand>(_brandDal.Get(b => b.Id == brandId), BrandMessages.BrandByIdListed);
     }
 
     public IResult Update(Brand brand)

@@ -12,7 +12,6 @@ public class FindeksManager : IFindeksService
     {
         _userService = userService;
     }
-
     public IDataResult<int> GetFindeksScore(int userId)
     {
         //0-1900

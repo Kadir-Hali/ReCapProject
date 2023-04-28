@@ -72,7 +72,7 @@
         public static string CarImageByIdListed = "Seçilen araç'ın resmi listelendi";
         public static string CarImageLimitExceded = "Görsel limitini aştığınız için daha fazla görsel eklenemiyor.";
     }
-    public static class AuthMessages 
+    public static class AuthMessages
     {
         public static string UserRegistered = "Kayıt oldu.";
         public static string UserNotFound = "Kullanıcı bulunamadı.";
