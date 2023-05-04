@@ -8,7 +8,8 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class CustomersController : ControllerBase
 {
-    ICustomerService _customerService;
+    private ICustomerService _customerService;
+
     public CustomersController(ICustomerService customerService)
     {
         _customerService = customerService;
@@ -46,7 +47,7 @@ public class CustomersController : ControllerBase
         }
         return BadRequest(result);
     }
-        
+
     [HttpPost("delete")]
     public IActionResult Delete(Customer customer)
     {
@@ -57,7 +58,7 @@ public class CustomersController : ControllerBase
         }
         return BadRequest(result);
     }
-        
+
     [HttpPost("update")]
     public IActionResult Update(Customer customer)
     {

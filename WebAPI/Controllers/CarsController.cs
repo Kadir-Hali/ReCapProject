@@ -9,7 +9,7 @@ namespace WebAPI.Controllers;
 public class CarsController : ControllerBase
 {
     //IoC Container
-    ICarService _carService;
+    private ICarService _carService;
 
     public CarsController(ICarService carService)
     {
@@ -17,9 +17,8 @@ public class CarsController : ControllerBase
     }
 
     [HttpGet("getall")]
-    public IActionResult GetAll() 
+    public IActionResult GetAll()
     {
-            
         var result = _carService.GetAll();
         if (result.Success)
         {
@@ -27,12 +26,12 @@ public class CarsController : ControllerBase
         }
         return BadRequest(result);
     }
-        
+
     [HttpGet("getbyid")]
-    public IActionResult GetById(int id) 
+    public IActionResult GetById(int id)
     {
-        var result=_carService.GetById(id);
-        if (result.Success) 
+        var result = _carService.GetById(id);
+        if (result.Success)
         {
             return Ok(result);
         }
@@ -40,10 +39,10 @@ public class CarsController : ControllerBase
     }
 
     [HttpGet("getcarsbycolorid")]
-    public IActionResult GetCarsByColorId(int colorId) 
+    public IActionResult GetCarsByColorId(int colorId)
     {
-        var result = _carService.GetCarsByColorId(colorId);   
-        if (result.Success) 
+        var result = _carService.GetCarsByColorId(colorId);
+        if (result.Success)
         {
             return Ok(result);
         }
@@ -72,12 +71,11 @@ public class CarsController : ControllerBase
         return BadRequest(result);
     }
 
-
     [HttpPost("add")]
-    public IActionResult Add(Car car) 
+    public IActionResult Add(Car car)
     {
         var result = _carService.Add(car);
-        if (result.Success) 
+        if (result.Success)
         {
             return Ok(result);
         }
@@ -85,10 +83,10 @@ public class CarsController : ControllerBase
     }
 
     [HttpPost("delete")]
-    public IActionResult Delete(Car car) 
+    public IActionResult Delete(Car car)
     {
         var result = _carService.Delete(car);
-        if (result.Success) 
+        if (result.Success)
         {
             return Ok(result);
         }
@@ -96,7 +94,7 @@ public class CarsController : ControllerBase
     }
 
     [HttpPost("update")]
-    public IActionResult Update(Car car) 
+    public IActionResult Update(Car car)
     {
         var result = _carService.Update(car);
         if (result.Success)

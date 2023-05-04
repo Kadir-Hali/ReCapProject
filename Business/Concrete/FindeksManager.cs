@@ -12,10 +12,11 @@ public class FindeksManager : IFindeksService
     {
         _userService = userService;
     }
+
     public IDataResult<int> GetFindeksScore(int userId)
     {
         //0-1900
-        // Service connection and get findeks score 
+        // Service connection and get findeks score
         /*
          ****************
          ********

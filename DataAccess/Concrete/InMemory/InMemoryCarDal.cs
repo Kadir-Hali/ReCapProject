@@ -7,11 +7,11 @@ namespace DataAccess.Concrete.InMemory;
 
 public class InMemoryCarDal : ICarDal
 {
-    List<Car> _cars;
+    private List<Car> _cars;
+
     public InMemoryCarDal()
     {
-        _cars = new List<Car> { 
-                
+        _cars = new List<Car> {
             new Car { Id = 1,BrandId=1,ColorId=3,ModelYear=2018,DailyPrice=550,CarName= "Opel Astra"},
             new Car { Id = 2,BrandId=1,ColorId=1,ModelYear=2012,DailyPrice=250,CarName="Opel Vectra"},
             new Car { Id = 3,BrandId=3,ColorId=2,ModelYear=2020,DailyPrice=700,CarName="Ford Focus"},
@@ -19,6 +19,7 @@ public class InMemoryCarDal : ICarDal
             new Car { Id = 5,BrandId=4,ColorId=2,ModelYear=2017,DailyPrice=600,CarName="BMW 320d"}
         };
     }
+
     public void Add(Car car)
     {
         _cars.Add(car);
@@ -27,7 +28,7 @@ public class InMemoryCarDal : ICarDal
     public void Delete(Car car)
     {
         //LINQ - Language Integrated Query
-        Car carToDelete = null ;
+        Car carToDelete = null;
         carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
         _cars.Remove(carToDelete);
     }

@@ -5,6 +5,7 @@
         public static string MaintenanceTime = "Sistem bakımda";
         public static string AuthorizationDenied = "Yetkiniz yok!";
     }
+
     public static class CarMessages
     {
         public static string CarAdded = "Araç eklendi";
@@ -37,6 +38,7 @@
         public static string ColorByIdListed = "Seçilen renkli araçlar listelendi";
         public static string ColorsBrandListed = "Araçlar markalarına göre listelendi";
     }
+
     public static class UserMessages
     {
         public static string UserAdded = "Kullanıcı eklendi";
@@ -45,6 +47,7 @@
         public static string UsersListed = "Kullanıcıların tümü listelendi";
         public static string UserByIdListed = "Seçilen kullanıcı listelendi";
     }
+
     public static class CustomerMessages
     {
         public static string CustomerAdded = "Müşteri eklendi";
@@ -53,6 +56,7 @@
         public static string CustomersListed = "Müşterilerin tümü listelendi";
         public static string CustomerByIdListed = "Seçilen müşteri listelendi";
     }
+
     public static class RentalMessages
     {
         public static string RentalDetailsListed = "Kiralama detayları listelendi.";
@@ -63,6 +67,7 @@
         public static string RentalsListed = "Kiralama işlemlerinin tümü listelendi";
         public static string RentalByIdListed = "Seçilen Kiralama işlemi listelendi";
     }
+
     public static class CarImagesMessages
     {
         public static string CarImageAdded = "Araç'a resim eklendi";
@@ -72,6 +77,7 @@
         public static string CarImageByIdListed = "Seçilen araç'ın resmi listelendi";
         public static string CarImageLimitExceded = "Görsel limitini aştığınız için daha fazla görsel eklenemiyor.";
     }
+
     public static class AuthMessages
     {
         public static string UserRegistered = "Kayıt oldu.";
@@ -81,6 +87,7 @@
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
         public static string UserAlreadyExists = "Kullanıcı zaten var.";
     }
+
     public static class PaymentMessages
     {
         public static string InsufficientBalance = "Yetersiz bakiye";

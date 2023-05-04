@@ -8,7 +8,7 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class RentalsController : ControllerBase
 {
-    IRentalService _rentalService;
+    private IRentalService _rentalService;
 
     public RentalsController(IRentalService rentalService)
     {
@@ -58,6 +58,7 @@ public class RentalsController : ControllerBase
         }
         return BadRequest(result);
     }
+
     [HttpPost("delete")]
     public IActionResult Delete(Rental rental)
     {
@@ -68,6 +69,7 @@ public class RentalsController : ControllerBase
         }
         return BadRequest(result);
     }
+
     [HttpPost("update")]
     public IActionResult Update(Rental rental)
     {

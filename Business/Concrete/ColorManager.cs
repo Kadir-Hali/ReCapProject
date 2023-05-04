@@ -8,7 +8,7 @@ namespace Business.Concrete;
 
 public class ColorManager : IColorService
 {
-    IColorDal _colorDal;
+    private IColorDal _colorDal;
 
     public ColorManager(IColorDal colorDal)
     {
@@ -29,12 +29,12 @@ public class ColorManager : IColorService
 
     public IDataResult<List<Color>> GetAll()
     {
-        return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),ColorMessages.ColorsListed);
+        return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), ColorMessages.ColorsListed);
     }
 
     public IDataResult<Color> GetById(int colorId)
     {
-        return new SuccessDataResult<Color>(_colorDal.Get(c => c.Id==colorId),ColorMessages.ColorByIdListed);
+        return new SuccessDataResult<Color>(_colorDal.Get(c => c.Id == colorId), ColorMessages.ColorByIdListed);
     }
 
     public IResult Update(Color color)

@@ -8,7 +8,7 @@ namespace Business.Concrete;
 
 public class BrandManager : IBrandService
 {
-    IBrandDal _brandDal;
+    private IBrandDal _brandDal;
 
     public BrandManager(IBrandDal brandDal)
     {
@@ -26,7 +26,6 @@ public class BrandManager : IBrandService
         _brandDal.Delete(brand);
         return new SuccessResult(BrandMessages.BrandDeleted);
     }
-
 
     public IDataResult<List<Brand>> GetAll()
     {

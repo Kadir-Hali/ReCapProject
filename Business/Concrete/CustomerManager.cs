@@ -8,7 +8,7 @@ namespace Business.Concrete;
 
 public class CustomerManager : ICustomerService
 {
-    ICustomerDal _customerDal;
+    private ICustomerDal _customerDal;
 
     public CustomerManager(ICustomerDal customerDal)
     {
@@ -29,12 +29,12 @@ public class CustomerManager : ICustomerService
 
     public IDataResult<List<Customer>> GetAll()
     {
-        return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),CustomerMessages.CustomersListed);
+        return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), CustomerMessages.CustomersListed);
     }
 
     public IDataResult<Customer> GetById(int id)
     {
-        return new SuccessDataResult<Customer>(_customerDal.Get(c=>c.UserId==id),CustomerMessages.CustomerByIdListed);
+        return new SuccessDataResult<Customer>(_customerDal.Get(c => c.UserId == id), CustomerMessages.CustomerByIdListed);
     }
 
     public IResult Update(Customer customer)

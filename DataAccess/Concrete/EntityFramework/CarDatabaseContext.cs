@@ -11,10 +11,12 @@ public class CarDatabaseContext : DbContext
     {
         optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ReCapDb;Trusted_Connection=true");
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<UserOperationClaim>().HasNoKey();
     }
+
     public DbSet<Car> Cars { get; set; }
     public DbSet<Brand> Brands { get; set; }
     public DbSet<Color> Colors { get; set; }

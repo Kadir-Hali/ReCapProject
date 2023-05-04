@@ -8,7 +8,7 @@ namespace Business.Concrete;
 
 public class UserManager : IUserService
 {
-    IUserDal _user;
+    private IUserDal _user;
 
     public UserManager(IUserDal user)
     {
@@ -29,7 +29,7 @@ public class UserManager : IUserService
 
     public IDataResult<List<User>> GetAll()
     {
-        return new SuccessDataResult<List<User>>(_user.GetAll(),UserMessages.UsersListed);
+        return new SuccessDataResult<List<User>>(_user.GetAll(), UserMessages.UsersListed);
     }
 
     public User GetByEmail(string email)
@@ -40,7 +40,7 @@ public class UserManager : IUserService
 
     public IDataResult<User> GetById(int userId)
     {
-        return new SuccessDataResult<User>(_user.Get(u => u.Id == userId),UserMessages.UserByIdListed);
+        return new SuccessDataResult<User>(_user.Get(u => u.Id == userId), UserMessages.UserByIdListed);
     }
 
     public List<OperationClaim> GetClaims(User user)

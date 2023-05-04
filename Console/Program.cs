@@ -25,7 +25,6 @@ static void RentalTest()
     {
         Console.WriteLine(result.Message);
     }
-
 }
 static void CarTest()
 {
@@ -44,7 +43,6 @@ static void CarTest()
     {
         Console.WriteLine(result.Message);
     }
-
 }
 
 static void ColorTest()
@@ -56,10 +54,8 @@ static void ColorTest()
         foreach (var color in result.Data)
         {
             Console.WriteLine(color.ColorName);
-
         }
     }
-
 }
 
 static void BrandTest()
@@ -73,5 +69,4 @@ static void BrandTest()
             Console.WriteLine(brand.BrandName);
         }
     }
-
 }

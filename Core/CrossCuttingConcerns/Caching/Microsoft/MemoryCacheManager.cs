@@ -14,6 +14,7 @@ public class MemoryCacheManager : ICacheManager
     {
         _memoryCache = ServiceTool.ServiceProvider.GetService<IMemoryCache>();
     }
+
     public T Get<T>(string key)
     {
         return _memoryCache.Get<T>(key);
@@ -31,7 +32,7 @@ public class MemoryCacheManager : ICacheManager
 
     public bool IsAdd(string key)
     {
-        return _memoryCache.TryGetValue(key,out _);
+        return _memoryCache.TryGetValue(key, out _);
     }
 
     public void Remove(string key)

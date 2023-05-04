@@ -1,6 +1,4 @@
 ﻿using Business.Abstract;
-using Core.Utilities.Results;
-using Core.Utilities.Security.JWT;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 

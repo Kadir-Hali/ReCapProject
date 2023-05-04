@@ -9,6 +9,5 @@ public abstract class MethodInterceptionBaseAttribute : Attribute, IInterceptor
 
     public virtual void Intercept(IInvocation invocation)
     {
-
     }
 }

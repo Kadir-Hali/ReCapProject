@@ -13,12 +13,13 @@ public class JwtHelper : ITokenHelper
     public IConfiguration Configuration { get; } //appsettings.json dosyamızı okumaya yarar
     private TokenOptions _tokenOptions;
     private DateTime _accessTokenExpiration;
+
     public JwtHelper(IConfiguration configuration)
     {
         Configuration = configuration;
         _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
     }
+
     public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
     {
         _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
@@ -33,7 +34,6 @@ public class JwtHelper : ITokenHelper
             Token = token,
             Expiration = _accessTokenExpiration
         };
-
     }
 
     public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user,

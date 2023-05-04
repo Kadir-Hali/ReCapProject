@@ -15,12 +15,13 @@ namespace Business.Concrete;
 
 public class CarManager : ICarService
 {
-    ICarDal _carDal;
+    private ICarDal _carDal;
 
     public CarManager(ICarDal carDal)
     {
         _carDal = carDal;
     }
+
     [SecuredOperation("car.add")]
     [ValidationAspect(typeof(CarValidator))]
     [CacheRemoveAspect("IProductService.Get")]
@@ -28,7 +29,6 @@ public class CarManager : ICarService
     {
         _carDal.Add(car);
         return new SuccessResult(CarMessages.CarAdded);
-
     }
 
     public IResult Delete(Car car)
@@ -85,7 +85,6 @@ public class CarManager : ICarService
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), CarMessages.CarDetailsListed);
         }
-
     }
 
     public IDataResult<List<CarDetailDto>> GetCarDetailByBrand(int brandId)

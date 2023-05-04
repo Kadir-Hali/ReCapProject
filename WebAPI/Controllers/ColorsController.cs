@@ -8,7 +8,7 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class ColorsController : ControllerBase
 {
-    IColorService _colorService;
+    private IColorService _colorService;
 
     public ColorsController(IColorService colorService)
     {
@@ -16,7 +16,7 @@ public class ColorsController : ControllerBase
     }
 
     [HttpGet("getall")]
-    public IActionResult GetAll() 
+    public IActionResult GetAll()
     {
         var result = _colorService.GetAll();
         if (result.Success)
